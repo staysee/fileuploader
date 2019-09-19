@@ -13,12 +13,19 @@ class App extends React.Component {
     }
   }
 
+  updateSearchTerm(term) {
+    this.setState({
+      searchTerm: term
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <SearchBar 
           searchTerm={ this.state.searchTerm }
           filterOption={ this.state.filterOption }
+          handleUpdate={ term => this.updateSearchTerm(term) }
         />
         <FilterableList 
           files={ this.props.files }
